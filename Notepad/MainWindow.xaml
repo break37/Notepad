@@ -5,8 +5,57 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Notepad"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="Notepad" Height="450" Width="800">
+    <DockPanel>
+        <Menu IsMainMenu="True" DockPanel.Dock="Top">
+            <MenuItem Header="_Plik">
+                <MenuItem Header="_Nowy" InputGestureText="Ctrl+N" />
+                <MenuItem Header="_Otwórz" InputGestureText="Ctrl+O" Click="MenuItem_Otworz_Click" />
+                <MenuItem Header="Zapi_sz" InputGestureText="Ctrl+S" Click="MenuItem_Zapisz_Click" />
+                <MenuItem Header="_Zapisz jako" InputGestureText="Ctrl+Shift+s" Click="MenuItem_Zapisz_jako_Click" />
+                <Separator />
+                <MenuItem Header="_Drukuj" InputGestureText="Ctrl+P" />
+                <MenuItem Header="Za_kończ" InputGestureText="Alt+F4" />
+            </MenuItem>
+            <MenuItem Header="_Edycja">
+                <MenuItem Header="_Cofnij" InputGestureText="Ctrl+Z" />
+                <MenuItem Header="_Powtórz" InputGestureText="Ctrl+Y" />
+                <Separator />
+                <MenuItem Header="_Wytnij" InputGestureText="Ctrl+X" />
+                <MenuItem Header="_Kopiuj" InputGestureText="Ctrl+C" />
+                <MenuItem Header="W_klej" InputGestureText="Ctrl+V" />
+                <MenuItem Header="_Usuń" InputGestureText="Delete" />
+                <Separator />
+                <MenuItem Header="_Zaznacz wszystko" InputGestureText="Ctrl+A" />
+                <MenuItem Header="_Godzina/data" InputGestureText="F5" />
+            </MenuItem>
+            <MenuItem Header="_Widok">
+                <MenuItem Header="Za_wijanie wierszy" IsCheckable="True"/>
+                <MenuItem Header="Czcionka" />
+                <MenuItem Header="Kolor tła" />
+                <Separator />
+                <MenuItem Header="Pasek narzędzi" IsCheckable="True" />
+                <MenuItem Header="Pasek stanu" IsCheckable="True" />
+            </MenuItem>
+        </Menu>
+        <ToolBarTray DockPanel.Dock="Top">
+        </ToolBarTray>
+        <StatusBar DockPanel.Dock="Bottom">
+            <StatusBarItem>
+                <TextBlock x:Name="loadedFileName" Text="Nowy.txt" />
+            </StatusBarItem>
+            <StatusBarItem>
+                <TextBlock x:Name="wharactersCount">0</TextBlock>
+            </StatusBarItem>
+            <StatusBarItem>
+                <TextBlock x:Name="wordsCount">0</TextBlock>
+            </StatusBarItem>
+        </StatusBar>
+        <TextBox x:Name="textContent" AcceptsReturn="True" TextWrapping="Wrap"
+                 ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                 ScrollViewer.VerticalScrollBarVisibility="Auto"
+                 
+                 TextChanged="TextContent_TextChanged"
+                 />
+    </DockPanel>
 </Window>
